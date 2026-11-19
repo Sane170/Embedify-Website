@@ -1,0 +1,1 @@
+const {getSession,json}=require("./lib/auth");exports.handler=async(event)=>{const s=getSession(event);return s?json(200,{id:s.user.id,username:s.user.username}):json(401,{error:"Please sign in with Discord first."});};
