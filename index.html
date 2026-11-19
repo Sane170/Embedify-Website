@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b13">
+  <meta name="description" content="Embedify makes creating, customizing, previewing, and publishing Discord embeds simple.">
+  <title>Embedify — Make every message stand out</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090b13;--panel:#111522;--panel2:#151b2b;--line:rgba(255,255,255,.09);--text:#f5f7ff;--muted:#9ba5bb;--accent:#8b7cff;--accent2:#54d6c8;--max:1120px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 0%,rgba(113,91,255,.16),transparent 35%),var(--bg);color:var(--text);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}.topbar{position:sticky;top:0;z-index:5;background:rgba(9,11,19,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.04em;font-size:21px}.mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(140deg,#a397ff,#6554e8);display:grid;place-items:center;box-shadow:0 8px 28px #7464ff55}.mark svg{width:20px;height:20px}.links{display:flex;align-items:center;gap:28px;color:var(--muted);font-size:14px}.links a:hover{color:var(--text)}.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:12px;padding:11px 17px;font-weight:700;font-size:14px;transition:.2s ease}.nav-cta,.btn-primary{background:var(--text);color:#111321}.nav-cta:hover,.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 28px #ffffff20}.btn-secondary{border:1px solid var(--line);background:rgba(255,255,255,.035);color:var(--text)}.btn-secondary:hover{background:rgba(255,255,255,.08)}
+    .hero{padding:104px 0 82px;text-align:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid rgba(139,124,255,.3);border-radius:999px;background:rgba(139,124,255,.09);color:#c5bdff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 12px var(--accent2)}h1{max-width:850px;margin:24px auto 18px;font-size:clamp(44px,7vw,76px);line-height:1.04;letter-spacing:-.065em}h1 span{background:linear-gradient(100deg,#b5adff 10%,#7dceff 90%);background-clip:text;color:transparent}.hero p{max-width:610px;margin:0 auto;color:var(--muted);font-size:18px}.hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px}.hero-note{margin-top:17px!important;font-size:12px!important}
+    .preview-shell{max-width:760px;margin:58px auto 0;padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));box-shadow:0 35px 100px #0008}.preview-window{border-radius:12px;background:#0d111b;overflow:hidden;text-align:left}.window-bar{height:42px;padding:0 15px;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--line)}.window-dot{width:8px;height:8px;border-radius:50%;background:#42495a}.window-label{margin-left:8px;color:#78839a;font-size:11px}.discord-preview{display:grid;grid-template-columns:155px 1fr;min-height:250px}.fake-side{padding:18px 12px;background:#111725;border-right:1px solid var(--line)}.fake-side strong{font-size:11px;color:#cbd2e4}.fake-channel{margin-top:13px;color:#8792aa;font-size:11px}.fake-channel.active{color:#fff;background:#252d42;padding:6px;border-radius:6px}.chat{padding:20px}.chat-user{font-size:11px;color:#8f9bb3;margin-bottom:12px}.embed{max-width:450px;padding:15px 17px;border:1px solid rgba(255,255,255,.07);border-left:4px solid #8b7cff;border-radius:8px;background:#171e2d}.embed small{color:#a99fff;font-size:10px;font-weight:700;letter-spacing:.1em}.embed h3{font-size:17px;margin:7px 0 4px}.embed p{font-size:12px;color:#aab4c8;margin:0}.embed-foot{display:flex;gap:8px;margin-top:16px}.embed-chip{height:7px;width:68px;border-radius:5px;background:#303a51}.embed-chip.short{width:40px}
+    section{padding:76px 0}.section-head{text-align:center;max-width:650px;margin:0 auto 38px}.kicker{color:#a99fff;text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:.14em}.section-head h2{font-size:clamp(30px,4vw,43px);letter-spacing:-.045em;line-height:1.15;margin:10px 0}.section-head p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature,.command-card,.step{padding:24px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018))}.feature-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(139,124,255,.13);color:#b7adff;margin-bottom:18px}.feature-icon svg{width:21px;height:21px}.feature h3,.command-card h3,.step h3{font-size:17px;margin:0 0 7px}.feature p,.command-card p,.step p{font-size:13px;color:var(--muted);margin:0}
+    .commands{background:linear-gradient(180deg,transparent,rgba(17,21,34,.65),transparent)}.command-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;max-width:800px;margin:auto}.command-card{padding:19px 21px}.cmd{display:inline-block;padding:5px 9px;border-radius:7px;background:#20263a;color:#c7c0ff;font:600 12px ui-monospace,SFMono-Regular,Menlo,monospace;margin-bottom:10px}.command-card h3{font-size:15px}.command-card p{font-size:12px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step-num{color:#a99fff;font:800 12px ui-monospace,monospace;margin-bottom:14px}.step{min-height:160px}.bottom-cta{padding:44px;border:1px solid rgba(139,124,255,.25);border-radius:22px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(139,124,255,.2),transparent 65%),#111522}.bottom-cta h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.04em;margin:0 0 10px}.bottom-cta p{color:var(--muted);margin:0 auto 22px;max-width:500px}
+    footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}.footer-links{display:flex;gap:20px}.footer-links a:hover{color:var(--text)}
+    @media(max-width:760px){.links{gap:14px}.links a:not(:last-child){display:none}.hero{padding:76px 0 58px}.grid,.steps{grid-template-columns:1fr}.command-grid{grid-template-columns:1fr}.discord-preview{grid-template-columns:105px 1fr}.fake-side{padding:15px 8px}.chat{padding:14px}.preview-shell{margin-top:40px}.footer-inner{align-items:flex-start;flex-direction:column}}
+    @media(max-width:420px){.wrap{width:min(var(--max),calc(100% - 28px))}.nav{height:64px}.nav-cta{padding:9px 12px}.brand{font-size:19px}.hero p{font-size:16px}.discord-preview{grid-template-columns:1fr}.fake-side{display:none}.bottom-cta{padding:30px 20px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#" aria-label="Embedify home"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v4H5zM5 11h14v4H5zM5 17h9v2H5z"/></svg></span>embedify</a>
+      <nav class="links" aria-label="Main navigation"><a href="#features">Features</a><a href="#commands">Commands</a><a href="#getting-started">Getting started</a></nav>
+      <a class="nav-cta" href="#get-started">Get started <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow"><span class="dot"></span> The embed builder for Discord</div>
+        <h1>Make every message <span>stand out.</span></h1>
+        <p>Create polished Discord embeds without the hassle. Build, preview, and publish messages that match your community.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#get-started">Start creating <span aria-hidden="true">→</span></a><a class="btn btn-secondary" href="#features">Explore features</a></div>
+        <p class="hero-note">Focused on one thing: making great Discord embeds.</p>
+        <div class="preview-shell" aria-label="Illustration of a Discord embed preview">
+          <div class="preview-window">
+            <div class="window-bar"><i class="window-dot"></i><i class="window-dot"></i><i class="window-dot"></i><span class="window-label"># announcements</span></div>
+            <div class="discord-preview">
+              <aside class="fake-side"><strong>YOUR SERVER</strong><div class="fake-channel"># general</div><div class="fake-channel active"># announcements</div><div class="fake-channel"># updates</div></aside>
+              <div class="chat"><div class="chat-user">Embedify <span style="color:#68758d">· just now</span></div><div class="embed"><small>COMMUNITY UPDATE</small><h3>A message worth noticing.</h3><p>Give important announcements a clean layout, a clear title, and your own style.</p><div class="embed-foot"><i class="embed-chip"></i><i class="embed-chip short"></i></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Made for embeds</div><h2>Everything you need. Nothing you don't.</h2><p>Embedify stays focused on creating and publishing custom Discord embeds.</p></div>
+        <div class="grid">
+          <article class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg></div><h3>Build with ease</h3><p>Create structured embeds with titles, descriptions, colors, and other message details.</p></article>
+          <article class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Preview before sending</h3><p>Check how your embed will look before publishing it to your channel.</p></article>
+          <article class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M13 5l7 7-7 7"/></svg></div><h3>Publish in seconds</h3><p>Send your finished embed straight to the channel where it belongs.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="commands" id="commands">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Command lineup</div><h2>Simple commands. Better embeds.</h2><p>Use Embedify's dedicated tools to create and manage your server messages.</p></div>
+        <div class="command-grid">
+          <article class="command-card"><span class="cmd">/embed create</span><h3>Create an embed</h3><p>Open the interactive embed builder and customize your message.</p></article>
+          <article class="command-card"><span class="cmd">/embed preview</span><h3>Preview an embed</h3><p>Review your embed before you publish it.</p></article>
+          <article class="command-card"><span class="cmd">/embed send</span><h3>Send an embed</h3><p>Publish your custom embed in the current channel.</p></article>
+          <article class="command-card"><span class="cmd">/embed announcement</span><h3>Make an announcement</h3><p>Create a clear, polished announcement embed for your community.</p></article>
+          <article class="command-card"><span class="cmd">/help</span><h3>View the help guide</h3><p>See the available Embedify commands and what they do.</p></article>
+          <article class="command-card"><span class="cmd">/dashboard</span><h3>Open the dashboard</h3><p>Find the link to the Embedify website dashboard when it is configured.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="getting-started">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Getting started</div><h2>From idea to published.</h2><p>Getting an embed ready for your server is straightforward.</p></div>
+        <div class="steps">
+          <article class="step"><div class="step-num">01 / ADD</div><h3>Add Embedify</h3><p>Invite the bot to a Discord server where you have permission to add apps.</p></article>
+          <article class="step"><div class="step-num">02 / CREATE</div><h3>Build your message</h3><p>Run the create command and customize the content and appearance.</p></article>
+          <article class="step"><div class="step-num">03 / PUBLISH</div><h3>Preview and send</h3><p>Check the result, then publish your embed to your chosen channel.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="get-started">
+      <div class="wrap"><div class="bottom-cta"><h2>Your next great embed starts here.</h2><p>Embedify is being built to make custom Discord messages easier to create and publish.</p><a class="btn btn-primary" href="#commands">Explore commands <span aria-hidden="true">→</span></a></div></div>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><a class="brand" href="#"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M5 5h14v4H5zM5 11h14v4H5zM5 17h9v2H5z"/></svg></span>embedify</a><span>© <span id="year"></span> Embedify. Built for better Discord embeds.</span><div class="footer-links"><a href="#features">Features</a><a href="#commands">Commands</a></div></div></footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
