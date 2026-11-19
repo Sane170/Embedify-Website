@@ -1,0 +1,2 @@
+const {getSession,json,userGuilds,botApi,safeError}=require("./lib/auth");
+exports.handler=async(event)=>{try{const s=getSession(event);if(!s)return json(401,{error:"Please sign in with Discord first."});const [mine,bot]=await Promise.all([userGuilds(s),botApi("/users/@me/guilds")]);const botIds=new Set(bot.map(g=>g.id));const guilds=mine.filter(g=>{const p=BigInt(g.permissions||"0");return botIds.has(g.id)&&(g.owner||(p&8n)||(p&32n));}).map(g=>({id:g.id,name:g.name,icon:g.icon}));return json(200,{guilds});}catch(e){return json(e.status||500,{error:safeError(e)});}};
